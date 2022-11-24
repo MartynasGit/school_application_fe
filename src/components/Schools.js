@@ -50,24 +50,23 @@ function Schools() {
       }
     );
   };
-    const searchSchool = (event) => {
-      event.preventDefault();
-      let item = event.target.name.value;
-      let searchUrl =
-        item.length === 0 ? url  : url + "?search=" + item;
-      fetch(searchUrl)
-        .then((res) => res.json())
-        .then(
-          (res) => {
-            setItems(res);
-            setIsLoaded(true);
-          },
-          (err) => {
-            setError(err);
-            setIsLoaded(true);
-          }
-        );
-    };
+  const searchSchool = (event) => {
+    event.preventDefault();
+    let item = event.target.name.value;
+    let searchUrl = item.length === 0 ? url : url + "?search=" + item;
+    fetch(searchUrl)
+      .then((res) => res.json())
+      .then(
+        (res) => {
+          setItems(res);
+          setIsLoaded(true);
+        },
+        (err) => {
+          setError(err);
+          setIsLoaded(true);
+        }
+      );
+  };
 
   if (!isLoaded) {
     return <div>Loading...</div>;
@@ -92,13 +91,9 @@ function Schools() {
               <th>School Name</th>
               <th>Address</th>
               <th>Code</th>
-              {auth.getRole() === 2 ? (
-                <th>
-                  <span className="mx-1 float-end">Actions</span>
-                </th>
-              ) : (
-                <></>
-              )}
+              <th>
+                <span className="mx-1 float-end">Actions</span>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -131,12 +126,14 @@ function Schools() {
                     </td>
                   </>
                 ) : (
-                  <button
-                    className="btn btn-primary float-end"
-                    onClick={() => navigate(`/schools/${item.id}`)}
-                  >
-                    Select
-                  </button>
+                  <td>
+                    <button
+                      className="btn btn-primary float-end"
+                      onClick={() => navigate(`/application/${item.id}`)}
+                    >
+                      Select
+                    </button>
+                  </td>
                 )}
               </tr>
             ))}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
 
 function Admin() {
@@ -6,11 +7,17 @@ function Admin() {
   const [status, setStatus] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
+
   const auth = useContext(AuthContext);
   const url = process.env.REACT_APP_API_SERVER_URL + "application/";
+  const hs = {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    // Authorization: `Bearer ${auth.getToken()}`,
+  };
 
   useEffect(() => {
-    fetch(url )
+    fetch(url)
       .then((res) => res.json())
       .then(
         (res) => {
@@ -24,10 +31,54 @@ function Admin() {
         }
       );
   }, [url]);
-  
-  const confirm = () => {
-    
-  }
+
+  const confirm = (id, idx) => {
+    fetch(url + id, {
+      method: "PUT",
+      headers: hs,
+      body: JSON.stringify({
+        confirmation: 1,
+      }),
+    }).then(
+      (res) => {
+        if (res.status === 200) {
+          setStatus({ message: "Confirmed" });
+          items[idx].confirmation = 1;
+        } else if (res.status === 401) {
+          setStatus({ message: res.statusText });
+        } else if (res.status === 422) {
+          setStatus({ message: res.statusText });
+        }
+      },
+      (err) => {
+        setStatus(err);
+      }
+    );
+  };
+  const deny = (id, idx) => {
+    fetch(url + id, {
+      method: "PUT",
+      headers: hs,
+      body: JSON.stringify({
+        confirmation: 0,
+      }),
+    }).then(
+      (res) => {
+        if (res.status === 200) {
+          setStatus({ message: "Denied" });
+          items[idx].confirmation = 0;
+          console.log(items[idx]);
+        } else if (res.status === 401) {
+          setStatus({ message: res.statusText });
+        } else if (res.status === 422) {
+          setStatus({ message: res.statusText });
+        }
+      },
+      (err) => {
+        setStatus(err);
+      }
+    );
+  };
 
   const deleteitem = (id) => {
     fetch(url + id, {
@@ -83,7 +134,7 @@ function Admin() {
             </tr>
           </thead>
           <tbody>
-            {items.map((item) => (
+            {items.map((item, idx) => (
               <tr key={item.id}>
                 <td>{item.id}</td>
                 <td>{item.user.name}</td>
@@ -98,10 +149,16 @@ function Admin() {
                     Delete apllication
                   </button>
                   <button
-                    className="btn btn-success mx-1 float-end"
-                    onClick={() => confirm(item.id)}
+                    className="btn btn-warning mx-1 float-end"
+                    onClick={() => deny(item.id, idx)}
                   >
-                    Confirmation
+                    Deny
+                  </button>
+                  <button
+                    className="btn btn-success mx-1 float-end"
+                    onClick={() => confirm(item.id, idx)}
+                  >
+                    Confirm
                   </button>
                 </td>
               </tr>

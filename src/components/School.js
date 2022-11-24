@@ -44,7 +44,7 @@ const School = () => {
         } else if (res.status === 401) {
           setStatus({ message: res.statusText });
         } else if (res.status === 422) {
-          setStatus({ message: res.statusText });
+          setStatus({ message: "Name already exist" });
         }
       },
       (err) => {
