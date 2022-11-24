@@ -5,6 +5,9 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import Header from "./components/Header";
+import Schools from "./components/Schools";
+import School from "./components/School";
+import ApplicationForm from "./components/ApplicationForm";
 
 function App() {
   return (
@@ -15,9 +18,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            {/* <Route path="/hotels" element={<Hotels />} /> */}
-            {/* <Route path="/hotel/:id" element={<Hotel />} /> */}
-            {/* <Route path="/hotel/create" element={<Hotel />} /> */}
+            <Route path="/schools" element={<Schools />} />
+            <Route path="/schools/:id" element={<School />} />
+            <Route path="/schools/create" element={<School />} />
+            <Route path="/application/:id" element={<ApplicationForm />} />
             {/* <Route path="/countries" element={<Countries />} /> */}
             {/* <Route path="/countries/:id" element={<Country />} /> */}
             {/* <Route path="/countries/create" element={<Country />} /> */}

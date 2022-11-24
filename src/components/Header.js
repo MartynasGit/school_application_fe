@@ -30,16 +30,16 @@ const Header = () => {
             </li>
             {auth.isLoggedin() ? (
               <>
-                {/* <li className="nav-item">
-                  <Link className="nav-link text-white" to="/restaurants">
-                    Restaurants
+                <li className="nav-item">
+                  <Link className="nav-link text-white" to="/schools">
+                    Schools
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link text-white" to="/dishes">
-                    Dishes
+                    Your Requests
                   </Link>
-                </li> */}
+                </li>
               </>
             ) : (
               " "
