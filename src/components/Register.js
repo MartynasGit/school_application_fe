@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
 
 const Register = () => {
-  const url = process.env.REACT_APP_API_SERVER_URL + 'register';
+  const url = process.env.REACT_APP_API_SERVER_URL + "register";
   const hs = { Accept: "application/json", "Content-Type": "application/json" };
   const [userInfo, setUserInfo] = useState({
     name: "",
