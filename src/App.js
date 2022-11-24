@@ -9,6 +9,7 @@ import Schools from "./components/Schools";
 import School from "./components/School";
 import ApplicationForm from "./components/ApplicationForm";
 import Requests from "./components/Requests";
+import Admin from "./components/Admin";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/schools/create" element={<School />} />
             <Route path="/application/:id" element={<ApplicationForm />} />
             <Route path="/requests" element={<Requests />} />
+            <Route path="/admin" element={<Admin />} />
             {/* <Route path="/countries/:id" element={<Country />} /> */}
             {/* <Route path="/countries/create" element={<Country />} /> */}
             <Route path="/login" element={<Login />} />

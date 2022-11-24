@@ -42,12 +42,13 @@ export const AuthProvider = ({ children }) => {
   const getUser = () => user;
   const getToken = () => token;
   const getRole = () => user.role;
+  const isAdmin = () => (user.role == "2" ? true : false);
   const getUserId = () => user.id;
   const isLoggedin = () => (user ? true : false);
 
   return (
     <AuthContext.Provider
-      value={{ login, isLoggedin, logout, getUser, getToken, getRole, getUserId }}
+      value={{ login, isLoggedin, logout, getUser, getToken, getRole, getUserId, isAdmin }}
     >
       {children}
     </AuthContext.Provider>

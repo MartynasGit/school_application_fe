@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
 
 const Header = () => {
   const auth = useContext(AuthContext);
+  const user = localStorage.getItem("user");
+  const role = JSON.parse(user).role;
   return (
     <>
       <nav className="navbar navbar-expand-xl navbar-expand-lg navbar-light bg-black px-5">
@@ -45,6 +47,15 @@ const Header = () => {
               " "
             )}
           </ul>
+          {role == 2 ? (
+            <ul className="navbar-nav d-flex">
+              <Link className="nav-link text-white" to="/admin">
+                Admin section
+              </Link>
+            </ul>
+          ) : (
+            ""
+          )}
           {!auth.isLoggedin() ? (
             <ul className="navbar-nav d-flex">
               <li className="nav-item">

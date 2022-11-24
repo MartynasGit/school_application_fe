@@ -115,6 +115,7 @@ const ApplicationForm = () => {
                     type="submit"
                     value="Submit"
                   />
+                  
                 </div>
               </form>
             </div>

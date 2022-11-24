@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "./AuthContext";
 
-function Requests() {
+function Admin() {
   const [error, setError] = useState(null);
   const [status, setStatus] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -10,9 +10,7 @@ function Requests() {
   const url = process.env.REACT_APP_API_SERVER_URL + "application/";
 
   useEffect(() => {
-    const user = localStorage.getItem("user");
-    let userId = JSON.parse(user).id;
-    fetch(url + userId)
+    fetch(url )
       .then((res) => res.json())
       .then(
         (res) => {
@@ -26,6 +24,10 @@ function Requests() {
         }
       );
   }, [url]);
+  
+  const confirm = () => {
+    
+  }
 
   const deleteitem = (id) => {
     fetch(url + id, {
@@ -71,10 +73,10 @@ function Requests() {
           <thead>
             <tr>
               <th>Request number</th>
+              <th>Parents name</th>
               <th>Childs name</th>
               <th>School</th>
               <th>Confirmation</th>
-
               <th>
                 <span className="mx-1 float-end">Actions</span>
               </th>
@@ -84,6 +86,7 @@ function Requests() {
             {items.map((item) => (
               <tr key={item.id}>
                 <td>{item.id}</td>
+                <td>{item.user.name}</td>
                 <td>{item.full_name}</td>
                 <td>{item.school.name}</td>
                 <td>{item.confirmation ? " Confirmed" : "Not confirmed"}</td>
@@ -93,6 +96,12 @@ function Requests() {
                     onClick={() => deleteitem(item.id)}
                   >
                     Delete apllication
+                  </button>
+                  <button
+                    className="btn btn-success mx-1 float-end"
+                    onClick={() => confirm(item.id)}
+                  >
+                    Confirmation
                   </button>
                 </td>
               </tr>
@@ -104,4 +113,4 @@ function Requests() {
   }
 }
 
-export default Requests;
+export default Admin;

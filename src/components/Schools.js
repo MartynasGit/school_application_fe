@@ -50,6 +50,24 @@ function Schools() {
       }
     );
   };
+    const searchSchool = (event) => {
+      event.preventDefault();
+      let item = event.target.name.value;
+      let searchUrl =
+        item.length === 0 ? url  : url + "?search=" + item;
+      fetch(searchUrl)
+        .then((res) => res.json())
+        .then(
+          (res) => {
+            setItems(res);
+            setIsLoaded(true);
+          },
+          (err) => {
+            setError(err);
+            setIsLoaded(true);
+          }
+        );
+    };
 
   if (!isLoaded) {
     return <div>Loading...</div>;
@@ -59,6 +77,15 @@ function Schools() {
     return (
       <>
         <h1>Available Schools</h1>
+        <div className="float-end">
+          <form className="float-end" onSubmit={(e) => searchSchool(e)}>
+            <label>Search hotel:</label>
+            <div className="d-flex">
+              <input className="form-control" name="name"></input>
+              <button className="btn border">Search</button>
+            </div>
+          </form>
+        </div>
         <table className="table">
           <thead>
             <tr>
