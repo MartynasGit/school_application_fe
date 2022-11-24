@@ -9,7 +9,7 @@ const Header = () => {
     <>
       <nav className="navbar navbar-expand-xl navbar-expand-lg navbar-light bg-black px-5">
         <Link className="navbar-brand text-white" to="/home">
-          Registration to school
+          Registration to School
         </Link>
         <button
           className="navbar-toggler"
@@ -20,7 +20,7 @@ const Header = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon bg-light"></span>
         </button>
         <div className="navbar-collapse collapse" id="navbarNav">
           <ul className="navbar-nav me-auto">

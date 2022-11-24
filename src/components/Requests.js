@@ -72,6 +72,7 @@ function Requests() {
             <tr>
               <th>Request number</th>
               <th>Childs name</th>
+              <th>ID number</th>
               <th>School</th>
               <th>Confirmation</th>
 
@@ -85,6 +86,7 @@ function Requests() {
               <tr key={item.id}>
                 <td>{item.id}</td>
                 <td>{item.full_name}</td>
+                <td>{item.id_code}</td>
                 <td>{item.school.name}</td>
                 <td>{item.confirmation ? " Confirmed" : "Not confirmed"}</td>
                 <td>
