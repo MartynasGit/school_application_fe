@@ -4,11 +4,10 @@ import { AuthContext } from "./AuthContext";
 
 const Header = () => {
   const auth = useContext(AuthContext);
-  const user = localStorage.getItem("user");
   return (
     <>
       <nav className="navbar navbar-expand-xl navbar-expand-lg navbar-light bg-black px-5">
-        <Link className="navbar-brand text-white" to="/home">
+        <Link className="navbar-brand text-white" to="/">
           Registration to School
         </Link>
         <button
@@ -25,9 +24,6 @@ const Header = () => {
         <div className="navbar-collapse collapse" id="navbarNav">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/home">
-                Home
-              </Link>
             </li>
             {auth.isLoggedin() ? (
               <>

@@ -3,7 +3,6 @@ import "./App.css";
 import { AuthProvider } from "./components/AuthContext";
 import Register from "./components/Register";
 import Login from "./components/Login";
-import Home from "./components/Home";
 import Header from "./components/Header";
 import Schools from "./components/Schools";
 import School from "./components/School";
@@ -12,13 +11,15 @@ import Requests from "./components/Requests";
 import Admin from "./components/Admin";
 
 function App() {
+  const user = localStorage.getItem("user");
+
   return (
     <BrowserRouter>
       <AuthProvider>
         <Header />
         <div className="container py-3">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={ user ? <Schools/>: <Login/>} />
             <Route path="/schools" element={<Schools />} />
             <Route path="/schools/:id" element={<School />} />
             <Route path="/schools/create" element={<School />} />

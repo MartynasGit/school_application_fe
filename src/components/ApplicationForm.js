@@ -48,6 +48,7 @@ const ApplicationForm = () => {
         full_name: student.name,
         id_code: student.id_code,
         grade: student.grade,
+        bdate: student.bdate,
         confirmation: 0,
       }),
     }).then(
@@ -108,6 +109,14 @@ const ApplicationForm = () => {
                       setStudent({ ...student, id_code: e.target.value })
                     }
                     placeholder="ID number"
+                  />
+                  <label className="fw-bold">Date of birth:</label>
+                  <input
+                    className="form-control"
+                    onChange={(e) =>
+                      setStudent({ ...student, bdate: e.target.value })
+                    }
+                    placeholder="Date of birth"
                   />
                   {/* INPUTS ENDS */}
                   <input

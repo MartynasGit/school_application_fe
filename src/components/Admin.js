@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
 
 function Admin() {
@@ -112,7 +111,7 @@ function Admin() {
   } else {
     return (
       <>
-        <h1>Your Requests</h1>
+        <h1>All requests</h1>
         {status === null ? (
           ""
         ) : (
@@ -148,18 +147,21 @@ function Admin() {
                   >
                     Delete apllication
                   </button>
-                  <button
-                    className="btn btn-warning mx-1 float-end"
-                    onClick={() => deny(item.id, idx)}
-                  >
-                    Deny
-                  </button>
-                  <button
-                    className="btn btn-success mx-1 float-end"
-                    onClick={() => confirm(item.id, idx)}
-                  >
-                    Confirm
-                  </button>
+                  {item.confirmation ? (
+                    <button
+                      className="btn btn-warning mx-1 float-end"
+                      onClick={() => deny(item.id, idx)}
+                    >
+                      Deny
+                    </button>
+                  ) : (
+                    <button
+                      className="btn btn-success mx-1 float-end"
+                      onClick={() => confirm(item.id, idx)}
+                    >
+                      Confirm
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}
