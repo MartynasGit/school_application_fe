@@ -121,7 +121,7 @@ function Schools() {
                         className="btn btn-primary float-end"
                         onClick={() => navigate(`/application/${item.id}`)}
                       >
-                        Select
+                        Apply
                       </button>
                     </td>
                   </>

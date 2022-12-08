@@ -12,7 +12,7 @@ Project will run if both frontend and back end parts are started.
     - database: MYSQL.
 
 * Project:
-    - Is secured with authentication.
+    - Is secured with authentication and users have roles
     - Can show all schools form database
     - User add and delete applications to school.
     - Have admin page.

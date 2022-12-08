@@ -16,7 +16,7 @@ const ApplicationForm = () => {
     "Content-Type": "application/json",
     // Authorization: `Bearer ${auth.getToken()}`,
   };
-//   console.log(auth.getUserId());
+  //   console.log(auth.getUserId());
 
   useEffect(() => {
     if (id)
@@ -38,7 +38,7 @@ const ApplicationForm = () => {
   const createItem = (e) => {
     e.preventDefault();
     let userId = auth.getUserId();
-    console.log(userId)
+    console.log(userId);
     fetch(url + "application", {
       method: "POST",
       headers: hs,
@@ -74,9 +74,7 @@ const ApplicationForm = () => {
   } else {
     return (
       <>
-        <h1 className="text-center my-3">
-          Applying to {items.name} school
-        </h1>
+        <h1 className="text-center my-3">Applying to {items.name} school</h1>
         <div className="d-flex aligns-items-center justify-content-center">
           <div className="card w-50">
             <div className="card-body">
@@ -86,13 +84,13 @@ const ApplicationForm = () => {
                 </div>
                 <div className="form-group d-grid gap-2">
                   {/* INPUTS STARTS */}
-                  <label className="fw-bold">Full Name:</label>
+                  <label className="fw-bold">Child's Full Name:</label>
                   <input
                     className="form-control"
                     onChange={(e) =>
                       setStudent({ ...student, name: e.target.value })
                     }
-                    placeholder="Students full name"
+                    placeholder="Full name here"
                   />
                   <label className="fw-bold">Grade:</label>
                   <input
@@ -102,7 +100,9 @@ const ApplicationForm = () => {
                     }
                     placeholder="Grade"
                   />
-                  <label className="fw-bold">ID number:</label>
+                  <label className="fw-bold">
+                    National identification number:
+                  </label>
                   <input
                     className="form-control"
                     onChange={(e) =>
@@ -112,6 +112,7 @@ const ApplicationForm = () => {
                   />
                   <label className="fw-bold">Date of birth:</label>
                   <input
+                    type="date"
                     className="form-control"
                     onChange={(e) =>
                       setStudent({ ...student, bdate: e.target.value })
@@ -124,7 +125,6 @@ const ApplicationForm = () => {
                     type="submit"
                     value="Submit"
                   />
-                  
                 </div>
               </form>
             </div>
