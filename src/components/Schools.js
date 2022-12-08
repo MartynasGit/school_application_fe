@@ -78,7 +78,7 @@ function Schools() {
         <h1>Available Schools</h1>
         <div className="float-end">
           <form className="float-end" onSubmit={(e) => searchSchool(e)}>
-            <label>Search hotel:</label>
+            <label>Search school:</label>
             <div className="d-flex">
               <input className="form-control" name="name"></input>
               <button className="btn border">Search</button>

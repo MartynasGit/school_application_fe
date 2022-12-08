@@ -1,15 +1,39 @@
 # School aplication manager
 
-## This is frond end part of the app.
+This is Front end part of the project.
+To see back end part of the project - https://github.com/MartynasGit/school_application_be
+Project will run if both frontend and back end parts are started.
 
-* This app was created with:
-* Frontend: React, Backend: Laravel, Database: Mysql.
+### About project
 
-Application have user and admin roles. 
+* Used techonologies:
+    - frontend: React library.
+    - backend: Laravel framework.
+    - database: MYSQL.
 
-Application is secured with authorization.
+* Project:
+    - Is secured with authentication.
+    - Can show all schools form database
+    - User add and delete applications to school.
+    - Have admin page.
+    - Admin can add, delete, edit schools and applications from app.
 
-* Features:
-* For user to see all school list, search from school list declare application to school, delete application to school.
-* For admin add, edit, delete schools. Approve or deny aplications to school.
+### Launching Front_End part
 
+- Clone repository frontend part.
+- https://github.com/MartynasGit/school_application_fe.git
+- Change .env.example name to .env - app uses enviromental variable.
+- npm install - wait for everything to be ready.
+- npm start - to start project in a browser.
+- Project will run backend on localhost:8000. If your difrent using port change in .env file.
+- if both frontend and backend parts are on project is live at
+- http://localhost:3000
+
+
+## Author
+
+Project is created by Martynas Gumuliauskas.
+
+Github - MartynasGit.
+
+Linkedin - https://www.linkedin.com/in/martynasgum/
