@@ -38,7 +38,18 @@ const ApplicationForm = () => {
   const createItem = (e) => {
     e.preventDefault();
     let userId = auth.getUserId();
-    console.log(userId);
+    // console.log(userId);
+    // console.log(
+    //   JSON.stringify({
+    //     user_id: userId,
+    //     school_id: id,
+    //     full_name: student.name,
+    //     id_code: student.id_code,
+    //     grade: student.grade,
+    //     bdate: student.bdate,
+    //     confirmation: 0,
+    //   })
+    // );
     fetch(url + "application", {
       method: "POST",
       headers: hs,
@@ -99,12 +110,14 @@ const ApplicationForm = () => {
                       setStudent({ ...student, grade: e.target.value })
                     }
                     placeholder="Grade"
+                    type="number"
                   />
                   <label className="fw-bold">
                     National identification number:
                   </label>
                   <input
                     className="form-control"
+                    type="number"
                     onChange={(e) =>
                       setStudent({ ...student, id_code: e.target.value })
                     }
